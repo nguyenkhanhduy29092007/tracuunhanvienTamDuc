@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#4a2810">
+  <title>Tra cứu nhân viên</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-mark">CT</div>
+        <div>
+          <div class="brand-title">NHÂN VIÊN PORTAL</div>
+          <div class="brand-subtitle">Tra cứu công • phép • tạm ứng • lương</div>
+        </div>
+      </div>
+      <div class="secure-badge"><span class="dot"></span>Dữ liệu nội bộ</div>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section id="loginBox" class="login-layout">
+      <div class="login-copy">
+        <div class="eyebrow">EMPLOYEE PORTAL</div>
+        <h1>Tra cứu thông tin<br><em>của bạn</em></h1>
+        <p class="hero-text">Đăng nhập bằng Mã nhân viên và PIN riêng để xem dữ liệu mới nhất từ hệ thống.</p>
+        <div class="feature-row">
+          <div class="mini-feature"><span class="mini-icon">✓</span><div><b>Riêng tư</b><small>Chỉ hiện dữ liệu của mã đã đăng nhập</small></div></div>
+          <div class="mini-feature"><span class="mini-icon">↻</span><div><b>Cập nhật</b><small>Dữ liệu lấy trực tiếp từ Google Sheets</small></div></div>
+        </div>
+      </div>
+
+      <div class="login-card glass-card">
+        <div class="card-topline"></div>
+        <div class="card-kicker">ĐĂNG NHẬP</div>
+        <h2>Chào bạn 👋</h2>
+        <p class="card-desc">Nhập thông tin để tiếp tục.</p>
+
+        <label for="employeeId">Mã nhân viên</label>
+        <div class="input-wrap">
+          <span class="input-icon">ID</span>
+          <input id="employeeId" type="text" placeholder="Ví dụ: S001178" autocomplete="username" spellcheck="false">
+        </div>
+
+        <label for="pin">Mã PIN</label>
+        <div class="input-wrap">
+          <span class="input-icon">••</span>
+          <input id="pin" type="password" inputmode="numeric" maxlength="6" placeholder="Nhập PIN 6 số" autocomplete="current-password">
+          <button id="togglePin" class="icon-btn" type="button" aria-label="Hiện hoặc ẩn PIN">◉</button>
+        </div>
+
+        <button id="searchBtn" class="primary-btn" type="button">
+          <span>Đăng nhập</span><span class="arrow">→</span>
+        </button>
+        <div id="error" class="error"></div>
+        <div class="login-note"><span>🔒</span> Không chia sẻ PIN cho người khác.</div>
+      </div>
+    </section>
+
+    <section id="resultBox" class="hidden">
+      <div class="dashboard-head">
+        <div>
+          <div class="eyebrow">MY DASHBOARD</div>
+          <h1 id="welcome">Xin chào!</h1>
+          <p id="employeeIdText" class="muted"></p>
+        </div>
+        <button id="backBtn" class="outline-btn" type="button">↩ Đăng xuất</button>
+      </div>
+
+      <div class="profile-card glass-card">
+        <div class="profile-avatar" id="avatar">NV</div>
+        <div class="profile-main">
+          <div class="profile-name" id="name">—</div>
+          <div class="profile-id" id="profileId">—</div>
+        </div>
+        <div class="profile-meta"><span>Contract</span><b id="contract">—</b></div>
+        <div class="profile-meta"><span>Team / Kho</span><b id="team">—</b></div>
+        <div class="profile-meta"><span>Agency / Vendor</span><b id="agency">—</b></div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-label">CHẤM CÔNG</div><div class="stat-value" id="attendanceCount">0</div><div class="stat-caption">bản ghi</div></div>
+        <div class="stat-card"><div class="stat-label">PHÉP NĂM</div><div class="stat-value" id="leaveCount">0</div><div class="stat-caption">bản ghi</div></div>
+        <div class="stat-card"><div class="stat-label">TẠM ỨNG</div><div class="stat-value money" id="advanceTotal">0</div><div class="stat-caption">VNĐ</div></div>
+        <div class="stat-card"><div class="stat-label">BẢNG LƯƠNG</div><div class="stat-value" id="salaryCount">0</div><div class="stat-caption">bản ghi</div></div>
+      </div>
+
+      <nav class="tabs" aria-label="Các mục thông tin">
+        <button class="tab active" data-tab="overview" type="button">Tổng quan</button>
+        <button class="tab" data-tab="attendance" type="button">Chấm công</button>
+        <button class="tab" data-tab="leave" type="button">Phép năm</button>
+        <button class="tab" data-tab="advance" type="button">Tạm ứng</button>
+        <button class="tab" data-tab="salary" type="button">Bảng lương</button>
+      </nav>
+
+      <div id="overview" class="tab-content active">
+        <div class="overview-grid">
+          <div class="content-card glass-card">
+            <div class="section-title"><div><span class="section-kicker">TỔNG QUAN</span><h2>Thông tin của bạn</h2></div><span class="status-pill">● Đã xác thực</span></div>
+            <div class="summary-list">
+              <div><span>Mã nhân viên</span><b id="overviewId">—</b></div>
+              <div><span>Họ và tên</span><b id="overviewName">—</b></div>
+              <div><span>Contract</span><b id="overviewContract">—</b></div>
+              <div><span>Team / Kho</span><b id="overviewTeam">—</b></div>
+              <div><span>Agency / Vendor</span><b id="overviewAgency">—</b></div>
+            </div>
+          </div>
+          <div class="content-card accent-card">
+            <div class="accent-icon">i</div>
+            <span class="section-kicker light">LƯU Ý</span>
+            <h2>Thông tin luôn lấy từ hệ thống</h2>
+            <p>Bạn chỉ xem được dữ liệu của tài khoản đang đăng nhập. Nếu bạn vừa được cập nhật công hoặc lương, hãy đăng xuất rồi đăng nhập lại để tải dữ liệu mới.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="attendance" class="tab-content"></div>
+      <div id="leave" class="tab-content"></div>
+      <div id="advance" class="tab-content"></div>
+      <div id="salary" class="tab-content"></div>
+    </section>
+  </main>
+
+  <footer>© 2026 Employee Portal • Tra cứu nội bộ</footer>
+  <script src="script.js"></script>
+</body>
+</html>
