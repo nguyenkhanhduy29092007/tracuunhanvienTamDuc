@@ -44,3 +44,21 @@ footer{text-align:center;padding:40px 20px 24px;color:#a08d7e;font-size:11px}
 @media(max-width:1050px){.login-layout{grid-template-columns:1fr;gap:35px;max-width:760px;margin:auto;min-height:auto}.login-copy{padding-top:25px}.profile-card{grid-template-columns:auto 1.2fr 1fr 1fr}.profile-meta:last-child{grid-column:2/5;border-left:0;padding-left:0}.overview-grid{grid-template-columns:1fr}.stats-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:680px){.site-header{padding:13px 4%}.secure-badge{display:none}.page-shell{width:92%;padding-top:35px}.brand-title{font-size:11px}.brand-subtitle{font-size:10px}.login-card{padding:25px;border-radius:22px}.feature-row{grid-template-columns:1fr}.hero-text{font-size:15px}.dashboard-head{align-items:flex-start;flex-direction:column}.dashboard-head h1{font-size:36px}.profile-card{grid-template-columns:auto 1fr}.profile-meta{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:13px}.profile-meta:nth-of-type(3){grid-column:1/-1}.profile-meta:nth-of-type(4){grid-column:1/-1}.stats-grid{grid-template-columns:1fr 1fr}.stat-card{padding:16px}.stat-value{font-size:24px}.summary-list{grid-template-columns:1fr}.content-card{padding:18px}.table-card{padding:16px}}
 @media(max-width:430px){.stats-grid{grid-template-columns:1fr}.tabs{margin-top:6px}.tab{padding:9px 13px}.profile-card{padding:16px}.profile-avatar{width:50px;height:50px}.profile-name{font-size:16px}}
+
+/* ===== TÂM ĐỨC BRAND ===== */
+body{position:relative;isolation:isolate;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;background-image:url('images/logo-tamduc.png');background-repeat:no-repeat;background-position:center 54%;background-size:min(58vw,620px);opacity:.075;filter:saturate(.9);pointer-events:none;z-index:-2}
+body::after{content:"";position:fixed;inset:0;background:linear-gradient(180deg,rgba(250,246,240,.96) 0%,rgba(250,246,240,.88) 48%,rgba(250,246,240,.95) 100%);pointer-events:none;z-index:-1}
+.bg-glow{z-index:-1}
+.site-header{background:rgba(69,32,11,.97)}
+.brand-mark{width:58px;height:58px;border-radius:16px;display:flex;align-items:center;justify-content:center;background:#fff;overflow:hidden;padding:5px;box-shadow:0 8px 26px rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.35)}
+.brand-mark img{width:100%;height:100%;object-fit:contain;display:block}
+.brand-title{font-size:15px;letter-spacing:.08em}
+.brand-subtitle{font-size:11px;color:#f0deca}
+.login-card{box-shadow:0 24px 70px rgba(74,40,16,.14)}
+@media(max-width:680px){
+  .brand-mark{width:50px;height:50px;border-radius:14px;padding:4px}
+  .brand-title{font-size:12px}
+  .brand-subtitle{font-size:9px}
+  body::before{background-size:430px;background-position:center 43%}
+}
